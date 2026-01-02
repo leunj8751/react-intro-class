@@ -8,6 +8,17 @@
   width: 200px;
 }
 
+.SideBarFooter {
+  text-align: center;
+  padding: 10px;
+}
+
+.SidebarFooter_add-button {
+  background: none;
+  border-radius: 10px;
+  border: 1px solid #555;
+}
+
 .MemoContainer {
   background-color: beige;
   flex: 1;
@@ -32,9 +43,25 @@
   text-overflow: ellipsis;
   overflow: hidden;
   padding: 5px 8px;
+  box-sizing: border-box;
+  position: relative;
 }
 
 .MemoItem.selected {
   background-color: rgba(100, 100, 100, 0.5);
   font-weight: 500;
+}
+
+.MemoItem_delete-button {
+  background: none;
+  color: red;
+  border: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: none;
+}
+
+.MemoItem:hover .MemoItem_delete-button {
+  display: inline-block;
 }

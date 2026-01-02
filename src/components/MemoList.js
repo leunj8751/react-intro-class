@@ -1,4 +1,9 @@
-function MemoList({ memos, setClickedMemoIndex, clickedMemoIndex }) {
+function MemoList({
+  memos,
+  setClickedMemoIndex,
+  clickedMemoIndex,
+  deleteMemo,
+}) {
   return (
     <div>
       {memos.map((memo, index) => (
@@ -12,6 +17,16 @@ function MemoList({ memos, setClickedMemoIndex, clickedMemoIndex }) {
           }}
         >
           {memo.title}
+          <button
+            className="MemoItem_delete-button"
+            onClick={(e) => {
+              deleteMemo(index);
+              e.preventDefault();
+              e.stopPropagation();
+            }}
+          >
+            x
+          </button>
         </div>
       ))}
     </div>
