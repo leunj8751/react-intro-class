@@ -1,48 +1,31 @@
 import './App.css';
 
-import { useState } from 'react';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import ProgressIndicator from './component/ProgressIndicator';
-import QuestionBox from './component/QustionBox';
+import CompletionPage from './pages/CompletionPage';
+import SurveyPage from './pages/SurveyPage';
 
 function App() {
-  const questions = [
+  const router = createBrowserRouter([
     {
-      title: '질문 1 입니다.',
-      desc: '설명1 입니다.',
-      type: 'text',
-      required: false,
-      options: {},
+      path: '/survey/:surveyId',
+      element: <SurveyPage />,
+      children: [
+        {
+          path: ':step',
+          element: <SurveyPage />,
+        },
+      ],
     },
     {
-      title: '질문 2 입니다.',
-      desc: '설명2 입니다.',
-      type: 'select',
-      required: false,
-      options: {},
+      path: '/complete',
+      element: <CompletionPage />,
     },
-  ];
-
-  const step = 0;
-
-  const [answers, setAnswers] = useState([]);
+  ]);
 
   return (
     <>
-      <ProgressIndicator />
-      <QuestionBox
-        question={questions[step]}
-        questionsCount={questions.length}
-        step={step}
-        answer={answers[step]}
-        setAnswer={(newAnswer) => {
-          setAnswers((answers) => {
-            const newAnswers = [...answers];
-            newAnswers[step] = answers;
-            return newAnswers;
-          });
-        }}
-      />
+      <RouterProvider router={router} />
     </>
   );
 }

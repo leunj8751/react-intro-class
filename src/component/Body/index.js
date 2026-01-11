@@ -6,7 +6,9 @@ function Body({ type, answer, setAnswer }) {
   if (type === 'text') {
     InputComponent = TextInput;
   } else if (type === 'select') {
+    InputComponent = TextInput;
   } else if (type === 'textarea') {
+    InputComponent = TextInput;
   }
 
   return (
