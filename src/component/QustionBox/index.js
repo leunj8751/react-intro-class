@@ -1,16 +1,16 @@
-import '../../App.css';
-
-import { useState } from 'react';
 import styled from 'styled-components';
 
+import useCurrentAnswer from '../../hooks/useCurrentAnswer';
+import useCurrentQuestion from '../../hooks/useCurrentQuestion';
 import Body from '../Body';
 import ButtonBox from '../ButtonBox';
 import Desc from '../Desc';
 import Title from '../Title';
 
-function QuestionBox({ question, questionCount, step, answer, setAnswer }) {
-  console.log(' :question');
-  console.log(question);
+function QuestionBox() {
+  const question = useCurrentQuestion();
+  const [answer, setAnswer] = useCurrentAnswer();
+
   return (
     <QuestionBoxWrapper>
       <Title>{question.title}</Title>
@@ -21,7 +21,7 @@ function QuestionBox({ question, questionCount, step, answer, setAnswer }) {
         setAnswer={setAnswer}
         options={question.options}
       />
-      <ButtonBox questionCount={questionCount} step={step} />
+      <ButtonBox />
     </QuestionBoxWrapper>
   );
 }

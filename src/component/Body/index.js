@@ -6,7 +6,7 @@ import TextInput from '../TextInput';
 
 function Body({ type, answer, setAnswer, options }) {
   let InputComponent = null;
-  console.log(type);
+
   if (type === 'text') {
     InputComponent = TextInput;
   } else if (type === 'select') {
