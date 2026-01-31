@@ -1,11 +1,11 @@
 import { selector } from 'recoil';
 
-import questionState from './atoms';
+import surveyStatus from './surveyState';
 
 const questionsLength = selector({
   key: 'questionsLength',
   get: ({ get }) => {
-    const questions = get(questionState);
+    const questions = get(surveyStatus).questions;
 
     return questions.length;
   },

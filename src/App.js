@@ -17,7 +17,7 @@ function App() {
       ],
     },
     {
-      path: '/complete',
+      path: '/complete/:surveyId',
       element: <CompletionPage />,
     },
   ]);

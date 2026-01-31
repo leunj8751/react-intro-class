@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 function Item({ children, onChange }) {
+  console.log(children + '::' + onChange);
   return (
     <ItemWrapper>
       <label>
@@ -13,6 +14,7 @@ function Item({ children, onChange }) {
 }
 
 function SelectInput({ answer = [], setAnswer, options }) {
+  console.log('answer2 ::' + answer);
   const handleChange = (isChcked, index) => {
     if (isChcked) {
       setAnswer([...answer, index]);
